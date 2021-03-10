@@ -1,0 +1,14 @@
+.banner {
+    position: relative;
+    padding: 1em;
+}
+
+.banner__text {
+    font-size: 35pt;
+}
+
+.banner__year {
+    position: absolute;
+    bottom: .3em;
+    right: .5em;
+}

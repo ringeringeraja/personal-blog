@@ -1,0 +1,11 @@
+.entry {
+    border: 1px solid red;
+    padding: .5em;
+}
+
+.entry__title {
+    font-size: 1.3em;
+    font-weight: bold;
+
+    margin-bottom: 1em;
+}

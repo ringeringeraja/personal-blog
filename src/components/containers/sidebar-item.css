@@ -1,0 +1,11 @@
+.item {
+    border: 1px solid green;
+    padding: .3em;
+}
+
+.item__title {
+    font-size: 1.1em;
+    font-weight: bold;
+
+    margin-bottom: .5em;
+}

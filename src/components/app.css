@@ -1,0 +1,48 @@
+.app {
+    display: grid;
+
+    grid-gap: 1.2em;
+    grid-template-columns: 20vw auto 30vw;
+    grid-template-areas:
+     "banner banner banner"
+     "main main sidebar"
+     "footer footer footer";
+
+    padding: .5em;
+    box-sizing: border-box;
+}
+
+.app > * {
+    border: 1px solid black;
+}
+
+.app__banner {
+    grid-area: banner;
+}
+
+.app__main {
+    grid-area: main;
+    min-height: 80vh;
+}
+
+.app__sidebar {
+    grid-area: sidebar;
+}
+
+.app__footer {
+    grid-area: footer;
+}
+
+@media screen and (max-width: 600px) {
+    .app {
+        grid-gap: .5em;
+        grid-template-columns: auto;
+        grid-template-areas:
+            "banner banner banner"
+            "main main main"
+            "sidebar sidebar sidebar"
+            "footer footer footer";
+
+        padding: .2em;
+    }
+}

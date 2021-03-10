@@ -1,0 +1,5 @@
+.sidebar {
+    display: grid;
+    grid-gap: .5em;
+    grid-template-columns: auto;
+}
