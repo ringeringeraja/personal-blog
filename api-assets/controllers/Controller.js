@@ -1,11 +1,14 @@
-class Controller {
+module.exports = class Controller {
     model = null
     description = null
     
     constructor(options) {
         Object.assign(this, options)
     }
-    
+
+    describe() {
+        return this.description
+    }
     get({ body }) {
         return this.model
             .findOne(body)
@@ -30,5 +33,3 @@ class Controller {
             .findOneAndDelete(body)
     }
 }
-
-module.exports = Controller

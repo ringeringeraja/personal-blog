@@ -1,21 +1,30 @@
-const { User } = require('../models/User')
+// const { User } = require('../models/User')
 const Controller = require('./Controller')
+const AuthService = require('../services/auth')
 
 class UserController extends Controller {
     constructor() {
         super({
-            model: User,
+            // model: User,
             description: 'Usuário'
         })
     }
 
     exists(payload) {
-        const { user } = payload;
-        return false;
+        const { user } = payload
+        return false
     }
-    testPassword(payload) {
-        const { user, password } = payload;
-        return false;
+    signin({ body }) {
+        const { username, password } = body
+
+        if (
+            username === process.env.APP_USERNAME &&
+            password === process.env.APP_PASSWORD
+        ) {
+            return {
+                token: AuthService.createToken({ username })
+            }
+        }
     }
 }
 

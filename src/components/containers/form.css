@@ -1,0 +1,7 @@
+.form >>> .form__label {
+    display: block;
+}
+
+.form >>> .form__label:not(:last-child) {
+    margin-bottom: .5em;
+}

@@ -14,7 +14,11 @@ const PostStructure = {
     content: {
         type: String,
         required: true,
-    }
+    },
+    categories: [{
+        type: mongoose.SchemaTypes.ObjectId,
+        required: true,
+    }]
 }
 
 const PostSchema = mongoose.Schema(PostStructure, options)

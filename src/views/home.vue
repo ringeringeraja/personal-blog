@@ -2,16 +2,17 @@
     <div class="home">
         <NewPost />
         <Post
-            v-for="(i, index) in posts"
+            v-for="(post, index) in posts"
             :key="`post-${index}`"
 
-            :post="i"
+            :post="post"
         />
     </div>
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
     components: {
@@ -20,17 +21,18 @@ export default {
     },
 
     setup() {
+        const store = useStore()
+        const posts = store.getters['post/items']
+
+
+        onMounted(() => {
+            if( posts.length === 0 ) {
+                store.dispatch('post/getAll')
+            }
+        })
+        
         return {
-            posts: [
-                {
-                    title: 'Teste 1',
-                    createdAt: '5-5-2021 20:00h'
-                },
-                {
-                    title: 'Teste 2, bla bla',
-                    createdAt: '5-5-2021 21:00h'
-                }
-            ]
+            posts: computed(() => store.getters['post/items'])
         }
     }
 }

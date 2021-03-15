@@ -3,6 +3,9 @@
         <template v-slot:title>
             {{ post.title }}
         </template>
+        <template v-slot:content>
+            {{ post.content }}
+        </template>
     </EntryContainer>
 </template>
 
@@ -18,7 +21,7 @@ export default {
     },
     components: {
         EntryContainer: defineAsyncComponent(() => import('components/containers/entry'))
-    }
+    },
 }
 </script>
 

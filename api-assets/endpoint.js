@@ -8,7 +8,7 @@ const endpoint = (callback) => async (req, res) => {
         res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
 
         res.setHeader(
-            'Access-Controll-Allow-Headers',
+            'Access-Control-Allow-Headers',
             'Accept,Accept-Version,Authorization,Content-Length,Content-MD5,Content-Type,Date,X-Api-Version'
         )
 
