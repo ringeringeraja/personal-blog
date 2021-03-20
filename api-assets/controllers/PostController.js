@@ -1,7 +1,7 @@
 const { Post } = require('../models/Post')
 const Controller = require('./Controller')
 
-class PostController extends Controller {
+module.exports = class PostController extends Controller {
     constructor() {
         super({
             model: Post,
@@ -9,5 +9,3 @@ class PostController extends Controller {
         })
     }
 }
-
-module.exports = PostController

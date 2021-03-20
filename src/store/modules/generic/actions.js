@@ -11,11 +11,14 @@ export default (http, initialState = {}) => ({
         .finally(() => {})
     ),
 
-    getAll: ({ commit }, payload) => new Promise((resolve, reject) => http.post('getAll', payload)
+    getAll: ({ commit }, payload={}) => new Promise((resolve, reject) => http.post('getAll', payload)
         .then(({ data }) => {
             const { result } = data
+            const start = +payload.start || 0
 
             commit('ITEMS_GET', result)
+            commit('OFFSET_CHANGE', start)
+
             resolve(result)
 
         }, (error) => error)

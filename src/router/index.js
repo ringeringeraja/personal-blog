@@ -4,6 +4,7 @@ const publicRoutes = [
     {
         name: 'home',
         path: '/',
+        alias: '/page/:page?',
         component: () => import('views/home'),
         meta: { title: 'Página inicial' }
     },

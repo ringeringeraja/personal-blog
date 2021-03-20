@@ -74,5 +74,8 @@ module.exports = (mode, name = 'main') => ({
             chunks: 'all'
         }
     },
+    experiments: {
+        topLevelAwait: true,
+    },
     externals: {}
 })

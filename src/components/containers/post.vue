@@ -1,6 +1,6 @@
 <template>
     <EntryContainer :is-post="true">
-        <template v-slot:title>
+        <template #title>
             <div
                 :class="{
                     'post__title': true,
@@ -12,7 +12,7 @@
                 {{ post.title }}
             </div>
         </template>
-        <template v-slot:details>
+        <template #details>
             <div>
                 Publicado em {{ post.created_at.formatDate() }}
             </div>
@@ -20,21 +20,21 @@
                 Atualizado em {{ post.updated_at.formatDate() }}
             </div>
         </template>
-        <template v-slot:content>
+        <template #content>
             {{
                 isPreview && post.content.length > 200
                     ? post.content.slice(0, 197) + '...'
                     : post.content
             }}
         </template>
-        <template v-slot:bottom v-if="isPreview || $slots.bottom">
+        <template #bottom v-if="isPreview || $slots.bottom">
             <div
                 class="post__readmore"
                 @click="goToPost(post)"
 
                 v-if="isPreview"
             >
-                Ler mais
+                Ver publicação
             </div>
 
             <slot name="bottom"></slot>

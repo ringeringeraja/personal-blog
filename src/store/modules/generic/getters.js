@@ -1,4 +1,9 @@
 export default (initialState) => ({
+    offset(state) {
+        return +state.offset >= 0
+            ? +state.offset
+            : 0
+    },
     item(state) {
         return state.item
     },
@@ -13,5 +18,8 @@ export default (initialState) => ({
     },
     hasItems(state) {
         return state.items.length > 0
+    },
+    count(state) {
+        return state.items.length
     }
 })

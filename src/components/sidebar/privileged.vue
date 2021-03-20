@@ -1,9 +1,9 @@
 <template>
     <SidebarItemContainer>
-        <template v-slot:title>
+        <template #title>
             Administração
         </template>
-        <template v-slot:content>
+        <template #content>
             <Button @click="shiftNewPost">Nova publicação</Button>
             <Button @click="goToConfig">Configurações</Button>
             <Button @click="signout">Sair</Button>
@@ -29,6 +29,7 @@ export default {
             store.dispatch('post/clear')
 
             if( route.path === '/') {
+                window.scrollTo(0, 0)
                 store.dispatch('admin/shiftNewPost')
             } else {
                 router.push({ name: 'post-new' })

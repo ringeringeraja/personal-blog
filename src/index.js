@@ -4,10 +4,12 @@ import App from 'components/app'
 import router from './router'
 import store from './store'
 
-import Button from 'components/utils/button'
-import EntryContainer from 'components/containers/entry'
-import FormContainer from 'components/containers/form'
-import FormLabelContainer from 'components/containers/form-label'
+const globalComponents = [
+    ['Button',          await import('components/utils/button')],
+    ['EntryContainer',  await import('components/containers/entry')],
+    ['FormContainer',   await import('components/containers/form')],
+    ['FormLabel',       await import('components/containers/form-label')]
+]
 
 if( process.env.NODE_ENV === 'development' ) {
     Object.assign(window, {
@@ -25,12 +27,18 @@ const mixin = {
     }
 }
 
-createApp(App)
-    .use(router)
-    .use(store)
-    .mixin(mixin)
-    .component('Button', Button)
-    .component('EntryContainer', EntryContainer)
-    .component('FormContainer', FormContainer)
-    .component('FormLabel', FormLabelContainer)
-    .mount('#root')
+store.dispatch('configuration/get').then((result) => {
+    const app = createApp(App)
+
+    app
+        .provide('configuration', result)
+        .use(router)
+        .use(store)
+        .mixin(mixin)
+
+    globalComponents
+        .forEach(([name, component]) => app.component(name, component.default))
+
+    app.mount('#root')
+
+})

@@ -1,15 +1,18 @@
 * {
+    --color-theme: #ff9000;
     --color-soft: #ddd;
     --color-soft-bg: #333;
     --color-close-bg: #444;
     --color-link: #ccee00;
+    --color-button-default: #ee5533;
+    --color-button-dangerous: #ff5555;
     --shadow-small: 0 0 3px #000;
 
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 body {
-    color: #ff9000;
+    color: #fff;
     background: #222;
 }
 

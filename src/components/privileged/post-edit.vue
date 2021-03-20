@@ -1,13 +1,13 @@
 <template>
     <EntryContainer>
-        <template v-slot:title>
+        <template #title>
             {{
                 post._id
                     ? 'Editar publicação'
                     : 'Nova publicação'
             }}
         </template>
-        <template v-slot:content>
+        <template #content>
             <FormContainer>
                 <FormLabel>
                     <div>Slug</div>

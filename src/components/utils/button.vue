@@ -1,16 +1,17 @@
 <template>
-    <div class="button">
+    <div :class="`button button--${buttonStyle}`">
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    setup({ label }) {
-        return {
-            label
+    props: {
+        buttonStyle: {
+            type: String,
+            default: 'default'
         }
-    }
+    },
 }
 </script>
 

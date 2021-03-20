@@ -1,14 +1,13 @@
 // const { User } = require('../models/User')
-const Controller = require('./Controller')
 const AuthService = require('../services/auth')
 
-class UserController extends Controller {
-    constructor() {
-        super({
-            // model: User,
-            description: 'Usuário'
-        })
-    }
+module.exports = class UserController {
+    // constructor() {
+    //     super({
+    //         // model: User,
+    //         description: 'Usuário'
+    //     })
+    // }
 
     exists(payload) {
         const { user } = payload
@@ -27,5 +26,3 @@ class UserController extends Controller {
         }
     }
 }
-
-module.exports = UserController

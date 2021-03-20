@@ -1,0 +1,18 @@
+.pagination {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-close-bg);
+    box-shadow: var(--shadow-small);
+
+    padding: .3em;
+}
+
+.pagination > * {
+    margin: 0;
+}
+
+.pagination__page {
+    order: 1;
+}

@@ -4,19 +4,9 @@
             :post="post"
             :is-preview="false"
         >
-            <template v-slot:bottom v-if="isAuthenticated">
-                <div
-                    class="entry__action"
-                    @click="editPost"
-                >
-                    Modificar
-                </div>
-                <div
-                    class="entry__action"
-                    @click="removePost"
-                >
-                    Deletar
-                </div>
+            <template #bottom v-if="isAuthenticated">
+                <Button @click="editPost">Modificar</Button>
+                <Button @click="removePost">Deletar</Button>
             </template>
         </PostContainer>
     </div>
@@ -66,7 +56,6 @@ export default {
         })
 
         return {
-            store,
             post: computed(() => store.getters['post/item']),
             isAuthenticated: computed(() => store.getters['user/isAuthenticated']),
             

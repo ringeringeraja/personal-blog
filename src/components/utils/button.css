@@ -1,11 +1,28 @@
 .button {
     display: inline-block;
-    background: blue;
-    color: #fff;
 
     margin: 0 .4em 0 0;
-    padding: .5em 1em;
+    padding: .4em 1em .3em 1em;
     cursor: pointer;
 
     user-select: none;
+    font-weight: bold;
+
+    border: 1px solid #000;
+    box-shadow: 0 1px 3px #000;
+
+    transform: translateZ(300px);
+    transition: filter .1s;
+}
+
+.button:hover {
+    filter: grayscale(.5);
+}
+
+.button--default {
+    background: var(--color-button-default);
+}
+
+.button--dangerous {
+    background: var(--color-button-dangerous);
 }

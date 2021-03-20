@@ -21,17 +21,18 @@ export default class User extends Module {
         })
 
         this.appendProperty('actions', {
-            signin: ({ commit }, payload) => {
-                return this.http.post('signin', payload)
+            signin: ({ commit }, payload) => new Promise((resolve, reject) => this.http.post('signin', payload)
                     .then(({ data }) => {
                         const { result } = data
                         commit('USER_SIGNIN', result)
+
+                        resolve(result)
 
                     })
                     .catch(error => error)
                     .finally(() => {})
 
-            },
+            ),
             signout: ({ commit }) => {
                 commit('USER_SIGNOUT')
             }

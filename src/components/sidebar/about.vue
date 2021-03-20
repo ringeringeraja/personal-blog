@@ -1,9 +1,9 @@
 <template>
     <SidebarItemContainer>
-        <template v-slot:title>
+        <template #title>
             Sobre o blog e sobre o autor
         </template>
-        <template v-slot:content>
+        <template #content>
             <div class="about">
                 {{ about.trim() }}
             </div>

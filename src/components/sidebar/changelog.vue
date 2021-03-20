@@ -1,9 +1,9 @@
 <template>
     <SidebarItemContainer>
-        <template v-slot:title>
+        <template #title>
             Changelog
         </template>
-        <template v-slot:content>
+        <template #content>
             <a href="https://github.com/ringeringeraja/personal-blog">
                 https://github.com/ringeringeraja/personal-blog
             </a>

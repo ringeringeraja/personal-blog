@@ -7,27 +7,36 @@
 
             :post="post"
         />
+        <Pagination />
     </div>
 </template>
 
 <script>
 import { defineAsyncComponent, computed, onMounted } from 'vue'
-import { onBeforeRouteLeave } from 'vue-router'
+import { useRoute, onBeforeRouteLeave } from 'vue-router'
 import { useStore } from 'vuex'
 
 export default {
     components: {
         PostContainer: defineAsyncComponent(() => import('components/containers/post')),
-        PostEdit: defineAsyncComponent(() => import('components/privileged/post-edit'))
+        PostEdit: defineAsyncComponent(() => import('components/privileged/post-edit')),
+        Pagination: defineAsyncComponent(() => import('components/utils/pagination'))
     },
 
     setup() {
+        const route = useRoute()
         const store = useStore()
+
         const posts = store.getters['post/items']
+        const offset = store.getters['post/offset']
 
         onMounted(async () => {
-            if( posts.length === 0 ) {
-                await store.dispatch('post/getAll')
+            if( posts.length === 0 || offset > 0 ) {
+                const offset = route.params.page
+                    ? (route.params.page-1)*10
+                    : 0
+
+                await store.dispatch('post/getAll', { start: offset })
             }
         })
 

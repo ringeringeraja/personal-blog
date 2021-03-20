@@ -1,7 +1,7 @@
 const { Category } = require('../models/Category')
 const Controller = require('./Controller')
 
-class CategoryController extends Controller {
+module.exports = class CategoryController extends Controller {
     constructor() {
         super({
             model: Category,
@@ -9,5 +9,3 @@ class CategoryController extends Controller {
         })
     }
 }
-
-module.exports = CategoryController

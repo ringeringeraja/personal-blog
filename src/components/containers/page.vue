@@ -1,9 +1,9 @@
 <template>
     <EntryContainer>
-        <template v-slot:title>
+        <template #title>
             {{ title }}
         </template>
-        <template v-slot:content>
+        <template #content>
             <slot></slot>
         </template>
     </EntryContainer>

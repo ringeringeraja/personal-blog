@@ -1,6 +1,6 @@
 <template>
     <SidebarItemContainer>
-        <template v-slot:title>
+        <template #title>
             Categorias
         </template>
     </SidebarItemContainer>

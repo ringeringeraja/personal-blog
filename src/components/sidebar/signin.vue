@@ -1,9 +1,9 @@
 <template>
     <SidebarItemContainer>
-        <template v-slot:title>
-            Entrar
+        <template #title>
+            Área restrita
         </template>
-        <template v-slot:content>
+        <template #content>
             <FormContainer>
                 <FormLabel>
                     <div>Usuário</div>
@@ -25,7 +25,7 @@
                 </FormLabel>
 
                 <Button @click="signin">
-                    Teste
+                    Entrar
                 </Button>
             </FormContainer>
         </template>

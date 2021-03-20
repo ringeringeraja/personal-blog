@@ -1,12 +1,14 @@
 .entry {
-    padding: .5em;
+    padding: .65em;
     background: var(--color-close-bg);
     box-shadow: var(--shadow-small);
 }
 
 .entry__title {
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: bold;
+
+    color: var(--color-theme);
 }
 
 .entry__details {
@@ -16,18 +18,25 @@
 }
 
 .entry__content {
-    margin-top: 1em;
+    margin-top: 1.6em;
     white-space: pre-wrap;
 }
 
 .entry__bottom {
-    margin-top: 2em;
-    color: var(--color-soft);
+    margin-top: 1em;
 }
 
-* >>> .entry__action {
-    display: inline-block;
-    margin-right: .8em;
+:deep(p) {
+    margin: .45em 0;
+}
 
-    cursor: pointer;
+:deep(h1) {
+    margin-bottom: 0;
+}
+
+:deep(img) {
+    display: block;
+    max-width: 90%;
+
+    margin: 0 auto;
 }

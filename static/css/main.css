@@ -3,6 +3,14 @@ html,body {
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 /* body {
     color: #faa10c;
     background: #222;

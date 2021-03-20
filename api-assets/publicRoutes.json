@@ -1,4 +1,5 @@
 [
+    "api/configuration@get",
     "api/post@get",
     "api/post@getAll",
     "api/user@signin"

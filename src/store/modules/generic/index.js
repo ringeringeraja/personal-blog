@@ -8,6 +8,7 @@ export default class Module {
     http = null
     route = null
     state_ = {
+        offset: 0,
         item: {
             _id: '',
             slug: '',

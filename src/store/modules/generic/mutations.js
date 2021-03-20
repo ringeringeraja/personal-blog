@@ -1,4 +1,7 @@
 export default {
+    OFFSET_CHANGE(state, offset) {
+        state.offset = offset
+    },
     ITEM_GET(state, payload) {
         state.item = payload
     },

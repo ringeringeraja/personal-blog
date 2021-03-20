@@ -9,13 +9,22 @@ module.exports = class Controller {
     describe() {
         return this.description
     }
+    count({ body }) {
+        return this.model
+            .countDocuments(body)
+    }
     get({ body }) {
         return this.model
             .findOne(body)
     }
     getAll({ body }) {
+        const { start, ...payload } = body || {}
+        const offset = +start > 0 ? +start : 0
+
         return this.model
-            .find(body)
+            .find(payload)
+            .limit(10)
+            .skip(offset)
             .sort({
                 updated_at: -1,
                 created_at: -1
